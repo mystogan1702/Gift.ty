@@ -12,44 +12,48 @@ body {
     align-items: center;
     min-height: 100vh;
     background: rgb(229, 192, 138);
+    padding: 10px;
 }
 
 .title-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 900px;
-    margin-bottom: 100px;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 50px;
     padding: 20px;
     border-bottom: 3px solid rgb(117, 92, 58);
 }
 
 .title-box h1 {
-    font-size: 50px;
+    font-size: 36px;
     text-align: center;
     color: rgb(117, 92, 58);
 }
 
 .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: row;
-    width: 900px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
     background: rgb(117, 92, 58);
     color: #fff;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
 .container h1 {
-    font-size: 36px;
+    font-size: 28px;
     text-align: center;
     color: #fff;
 }
 
 .container .right-container {
-    width: 100%;
+    width: 50%;
     padding: 30px 40px;
 }
 
@@ -57,7 +61,7 @@ body {
     position: relative;
     width: 100%;
     height: 50px;
-    margin: 40px 0;
+    margin: 20px 0;
 }
 
 .input-box input {
@@ -68,26 +72,28 @@ body {
     outline: none;
     border-bottom: 3px solid white;
     color: #fff;
-    padding: 20px 20px 20px 45px;
+    padding: 10px 10px 10px 45px;
+    font-size: 14px;
 }
 
 .input-box input::placeholder {
     color: #fff;
+    font-size: 12px;
 }
 
 .input-box i {
     position: absolute;
-    left: 20px;
+    left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .right-container .remember-forgot {
     display: flex;
     justify-content: space-between;
-    font-size: 14.5px;
-    margin: -15px 0 15px;
+    font-size: 12px;
+    margin: 10px 0;
 }
 
 .remember-forgot label input {
@@ -98,6 +104,7 @@ body {
 .remember-forgot a {
     color: #fff;
     text-decoration: none;
+    font-size: 12px;
 }
 
 .remember-forgot a:hover {
@@ -110,22 +117,23 @@ body {
     background: #fff;
     border: none;
     outline: none;
-    border-radius: 40PX;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     color: #333;
     font-weight: 600;
+    margin-top: 10px;
 }
 
 .right-container .register-link {
-    font-size: 14.5px;
+    font-size: 12px;
     text-align: center;
-    margin: 20px 0 15px;
+    margin: 20px 0 0;
 }
 
 .register-link p a {
-    color:#fff;
+    color: #fff;
     text-decoration: none;
     font-weight: 600;
 }
@@ -138,36 +146,34 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 50%;
     padding: 30px 40px;
     background-color: white;
-    border-radius: 10px;
+    color: rgb(117, 92, 58);
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 0 10px 10px 0;
 }
 
-/* Media Queries for Responsive Design */
-@media (max-width: 968px) {
+/* Media Queries for iPads */
+@media (max-width: 768px) {
     .container {
         flex-direction: column;
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .title-box {
         width: 100%;
-        margin-bottom: 50px;
     }
 
-    .title-box h1 {
-        font-size: 36px;
+    .container .left-container {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
     }
 
-    .right-container, .left-container {
+    .container .right-container {
         width: 100%;
         padding: 20px;
     }
 
-    .container h1 {
-        font-size: 28px;
+    .title-box h1 {
+        font-size: 30px;
     }
 
     .right-container .btn {
@@ -176,18 +182,32 @@ body {
     }
 }
 
+/* Media Queries for Cellphones */
 @media (max-width: 480px) {
     .title-box h1 {
-        font-size: 28px;
+        font-size: 24px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .container .left-container {
+        font-size: 16px;
+        padding: 20px;
+    }
+
+    .right-container {
+        padding: 20px;
     }
 
     .right-container .input-box {
-        margin: 30px 0;
+        margin: 15px 0;
     }
 
     .input-box input {
-        font-size: 14px;
-        padding: 15px 15px 15px 40px;
+        font-size: 12px;
+        padding: 8px 8px 8px 30px;
     }
 
     .input-box i {
@@ -196,11 +216,20 @@ body {
 
     .right-container .btn {
         height: 40px;
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .remember-forgot {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .remember-forgot a,
+    .remember-forgot label {
+        font-size: 10px;
+    }
+
+    .register-link {
+        font-size: 10px;
     }
 }
