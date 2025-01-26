@@ -159,7 +159,7 @@ body {
 @media (max-width: 768px) { /* iPad view */
     .container {
         flex-direction: column;
-        width: 90%;
+        width: 75%;
         margin: 0 auto;
     }
 
