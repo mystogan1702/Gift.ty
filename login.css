@@ -159,7 +159,7 @@ body {
 @media (max-width: 768px) { /* iPad view */
     .container {
         flex-direction: column;
-        width: 75%;
+        width: 80%;
         margin: 0 auto;
     }
 
@@ -193,12 +193,12 @@ body {
 
     .container {
         flex-direction: column;
-        width: 80%;
+        width: 90%;
         margin: 0 auto;
     }
 
     .container .left-container {
-        width: 50%; /* Full width for cellphones */
+        width: 40%; /* Full width for cellphones */
         background-color: transparent;
         padding: 10px;
     }
@@ -226,8 +226,11 @@ body {
         font-size: 14px;
     }
 
-    .remember-forgot {
-        flex-direction: column;
-        align-items: flex-start;
+    .remember-forgot label {
+        font-size: 14px;
+    }
+
+    .remember-forgot a {
+        font-size: 14px;
     }
 }
