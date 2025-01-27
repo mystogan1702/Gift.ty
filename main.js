@@ -41,7 +41,7 @@ function login() {
 
         // Wait for 5 seconds, then refresh the page
         setTimeout(() => {
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
         }, 2000);
     }
 }
