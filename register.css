@@ -112,24 +112,29 @@ body {
     font-size: 20px;
 }
 
-.right-container .remember-forgot {
+.right-container .terms-and-condition {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: right;
+    flex-direction: column;
     font-size: 14.5px;
     margin: -15px 0 15px;
+    color: lightgray;
 }
 
-.remember-forgot label input {
+.terms-and-condition label input {
     accent-color: #fff;
     margin-right: 3px;
 }
 
-.remember-forgot a {
+.terms-and-condition a {
     color: #fff;
     text-decoration: none;
+    font-weight: 600;
 }
 
-.remember-forgot a:hover {
+.terms-and-condition a:hover {
     text-decoration: underline;
 }
 
