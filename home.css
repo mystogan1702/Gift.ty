@@ -174,3 +174,31 @@ button:hover {
         font-size: 35px;
     }
 }
+
+@media (max-width: 430px) {
+    .navbar {
+        height: 70px;
+        padding: 10px 0;
+    }
+
+    .logo {
+        width: 50px;
+        margin-right: -15px;
+    }
+
+    .navbar .input-box {
+        margin: 20px 20px;
+    }
+
+    .navbar input {
+        padding: 10px 10px 10px 30px;
+    }
+
+    .navbar button {
+        display: none;
+    }
+
+    .user i {
+        font-size: 40px;
+    }
+}
