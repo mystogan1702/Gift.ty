@@ -72,19 +72,6 @@ function signUp() {
         setTimeout(() => {
             window.location.href = 'register.html';
         }, 2000);
-    } else if (registeredpassword !== registeredrepeatpassword) {
-        message.textContent = 'Password not matched!';
-        message.classList.add('error');
-
-        document.getElementById('name').disabled = true;
-        document.getElementById('username').disabled = true;
-        document.getElementById('email').disabled = true;
-        document.getElementById('username').disabled = true;
-        document.getElementById('repeatpassword').disabled = true;
-        signupButton.disabled = true;
-        setTimeout(() => {
-            window.location.href = 'register.html';
-        }, 2000);
     } else {
         localStorage.setItem('username', registeredusername);
         localStorage.setItem('password', registeredpassword);
