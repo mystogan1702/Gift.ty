@@ -1,8 +1,16 @@
+@font-face {
+    font-family: 'CustomFont'; /* Choose a custom name */
+    src: url('Stadio-Now-Novarese-TRIAL-BF676e2c2f45e26.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Segoe UI;
+    font-family: 'CustomFont';
+    text-transform: uppercase;
 }
 
 .container {
@@ -20,7 +28,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: rgb(191, 2, 2);
+    background-color: rgb(144,37,45);
     color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
 }
