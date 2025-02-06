@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'CustomFont'; /* Choose a custom name */
-    src: url('Stadio-Now-Novarese-TRIAL-BF676e2c2f45e26.ttf') format('truetype');
+    src: url('BalooBhaijaan-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -175,10 +175,13 @@ body {
     margin: 20px 0 15px;
 }
 
-.register-link p a {
+.register-link a {
     color: #fff;
     text-decoration: none;
-    font-weight: 600;
+}
+
+.register-link p {
+    color: lightgray;
 }
 
 .register-link p a:hover {
@@ -195,12 +198,10 @@ body {
 
 .message.success {
     color: rgb(154, 255, 149);
-    font-weight: 600;
 }
 
 .message.error {
     color: white;
-    font-weight: 600;
 }
 
 /* Media Queries for Responsive Design */
