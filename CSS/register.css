@@ -1,0 +1,327 @@
+@font-face {
+    font-family: 'CustomFont'; /* Choose a custom name */
+    src: url('../resources/BalooBhaijaan-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'CustomFont';
+    text-transform: uppercase;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(144,37,45);
+    padding: 10px;
+}
+
+.title-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 50px;
+    padding: 20px;
+    border-bottom: 3px solid white;
+}
+
+.title-box h1 {
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.title-box p {
+    font-size: 14.5px;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    background: rgba(51,91,134,255);
+    color: #fff;
+    border-radius: 7%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border: 10px solid white;
+}
+
+.container h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #fff;
+}
+
+.container .left-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto; /* Smaller default size */
+    padding: 30px;
+    background: rgba(51,91,134,255);
+    border-radius: 10px;
+    margin-left: 40px;
+}
+
+.left-container img {
+    width: 100%;
+    height: auto;
+}
+
+.container .right-container {
+    width: 65%; /* Adjust width to complement left-container */
+    padding: 30px 40px;
+    background: rgba(51,91,134,255);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left: 10px solid white;
+    border-radius: 10%;
+}
+
+.right-container .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 40px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 3px solid white;
+    color: #fff;
+    padding: 20px 20px 20px 45px;
+}
+
+.input-box input::placeholder {
+    color: lightgray;
+}
+
+.input-box i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.right-container .terms-and-condition {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    flex-direction: column;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+    color: lightgray;
+}
+
+.terms-and-condition label input {
+    accent-color: #fff;
+    margin-right: 3px;
+}
+
+.terms-and-condition a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.terms-and-condition a:hover {
+    text-decoration: underline;
+}
+
+.right-container .btn {
+    width: 100%;
+    height: 45px;
+    background: rgba(239,200,69,255);
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.btn:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+.right-container .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+
+.message {
+    display: block;
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+}
+
+.message.success {
+    color: rgb(154, 255, 149);
+    font-weight: 600;
+}
+
+.message.error {
+    color: white;
+    font-weight: 600;
+}
+
+.registered {
+    display: flex;
+    justify-content: center;
+    text-align: right;
+    width: 100%;
+    padding: 10px;
+}
+
+.registered p {
+    font-size: 14.5px;
+    color: lightgray;
+    margin-right: 3px;
+}
+
+.registered a {
+    color: white;
+    font-size: 14.5px;
+    text-decoration: none;
+}
+
+.registered a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) { /* iPad view */
+    body {
+        text-align: center;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .title-box {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .title-box h1 {
+        font-size: 36px;
+    }
+
+    .container .left-container {
+        width: 50%; /* Smaller for tablet */
+        padding: 20px;
+        margin: 0;
+    }
+
+    .container .right-container {
+        width: 100%;
+        padding: 20px;
+        border-radius: 0;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border: none;
+        border-top: 7px solid white;
+        border-radius: 10%;
+    }
+}
+
+@media (max-width: 480px) { /* Cellphone view */
+    body {
+        text-align: center;
+    }
+
+    .title-box h1 {
+        font-size: 27px;
+    }
+
+    .title-box p {
+        font-size: 10px;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .container .left-container {
+        width: 40%; /* Full width for cellphones */
+        background-color: transparent;
+        padding: 10px;
+    }
+
+    .container .right-container {
+        width: 100%; /* Full width for cellphones */
+        padding: 10px;
+    }
+
+    .right-container .input-box {
+        margin: 30px 0;
+    }
+
+    .input-box input {
+        font-size: 14px;
+        padding: 15px 15px 15px 40px;
+    }
+
+    .input-box i {
+        font-size: 16px;
+    }
+
+    .right-container .btn {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .terms-and-condition label {
+        font-size: 14px;
+    }
+
+    .terms-and-condition a {
+        font-size: 14px;
+    }
+}
