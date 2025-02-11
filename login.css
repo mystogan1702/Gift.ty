@@ -246,10 +246,11 @@ body {
 
     .title-box p {
         margin: 5px;
+        font-size: 10px;
     }
 
     .title-box h1 {
-        font-size: 28px;
+        font-size: 22px;
     }
 
     .container {
@@ -273,25 +274,38 @@ body {
         margin: 30px 0;
     }
 
+    .right-container h1{
+        font-size: 23px;
+    }
+
     .input-box input {
-        font-size: 14px;
+        font-size: 12px;
         padding: 15px 15px 15px 40px;
     }
 
     .input-box i {
-        font-size: 16px;
+        font-size: 12px;
     }
 
     .right-container .btn {
         height: 40px;
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .remember-forgot label {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .remember-forgot a {
-        font-size: 14px;
+        font-size: 12px;
+    }
+
+    .left-container img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .register-link p {
+        font-size: 10px;
     }
 }
