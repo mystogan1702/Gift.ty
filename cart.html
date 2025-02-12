@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- ✅ Navbar (Same as Other Pages) -->
+        <!-- ✅ Navbar -->
         <div class="navbar">
             <img src="LOGO.png" class="logo">
             <div class="menu">
@@ -17,15 +17,15 @@
                     <li><a href="home.html">Browse Gifts</a></li>
                     <li><a href="subscription.html">Subscribe</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <div class="user">
-                <i class='bx bxs-user-circle' ></i>
+                <i class='bx bxs-user-circle'></i>
                 <div class="user-dropdown">
                     <a href="#">Settings</a>
                     <a href="#">Account</a>
-                    <a href="#">Reminders</a>
+                    <a href="reminder.html">Reminders</a>
                     <a href="#">Calendar</a>
                     <a href="index.html">Sign Out</a>
                 </div>
@@ -37,7 +37,6 @@
 
         <!-- ✅ Cart Section -->
         <div class="cart-container">
-            <h2>Your Shopping Cart</h2>
             <table class="cart-table">
                 <thead>
                     <tr>
@@ -45,79 +44,103 @@
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Total</th>
-                        <th>Action</th>
+                        <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody id="cart-items">
-                    <!-- Items will be added dynamically -->
+                    <!-- Cart items will be dynamically added here -->
                 </tbody>
             </table>
-            <button class="clear-cart" onclick="clearCart()">Clear Cart</button>
+        
+            <!-- Total and Buttons -->
+            <div class="cart-footer">
+                <div class="total-container">
+                    <span>Total Amount:</span>
+                    <span id="total-amount">₱0.00</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="clear-cart" onclick="clearCart()">Clear Cart</button>
+                    <button class="checkout-btn">Checkout (<span id="total-items">0</span>)</button>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            loadCart();
-        });
-        
-        function loadCart() {
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            let cartTable = document.getElementById("cart-items");
-            cartTable.innerHTML = "";
-        
-            if (cart.length === 0) {
-                cartTable.innerHTML = "<tr><td colspan='5'>Your cart is empty!</td></tr>";
-                return;
-            }
-        
-            cart.forEach((item, index) => {
-                let row = document.createElement("tr");
-                row.innerHTML = `
-                    <td>
-                        <img src="${item.image}" class="product-img">
-                        <br>${item.name}
-                    </td>
-                    <td>₱${item.price.toFixed(2)}</td>
-                    <td>
-                        <div class="quantity-controls">
-                            <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
-                            <span>${item.quantity}</span>
-                            <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
-                        </div>
-                    </td>
-                    <td>₱${(item.price * item.quantity).toFixed(2)}</td>
-                    <td><button class="remove-btn" onclick="removeItem(${index})">Remove</button></td>
-                `;
-                cartTable.appendChild(row);
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                loadCart();
             });
         
-            localStorage.setItem("cart", JSON.stringify(cart));
-        }
+            function loadCart() {
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                let cartTable = document.getElementById("cart-items");
+                cartTable.innerHTML = "";
         
-        function updateQuantity(index, change) {
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            if (cart[index]) {
-                cart[index].quantity += change;
-                if (cart[index].quantity < 1) cart[index].quantity = 1; // Prevent negative quantity
+                if (cart.length === 0) {
+                    cartTable.innerHTML = "<tr><td colspan='5'>Your cart is empty!</td></tr>";
+                    document.getElementById("total-amount").innerText = "₱0.00";
+                    document.getElementById("total-items").innerText = "0"; // Fix for Checkout (unique products)
+                    return;
+                }
+        
+                cart.forEach((item, index) => {
+                    let row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>
+                            <img src="${item.image}" class="product-img">
+                            <br>${item.name}
+                        </td>
+                        <td>₱${item.price.toFixed(2)}</td>
+                        <td>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
+                                <span class="item-quantity">${item.quantity}</span>
+                                <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                            </div>
+                        </td>
+                        <td class="item-total">₱${(item.price * item.quantity).toFixed(2)}</td>
+                        <td><button class="remove-btn" onclick="removeItem(${index})">Remove</button></td>
+                    `;
+                    cartTable.appendChild(row);
+                });
+        
+                updateCartSummary();
+            }
+        
+            function updateQuantity(index, change) {
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                if (cart[index]) {
+                    cart[index].quantity += change;
+                    if (cart[index].quantity < 1) cart[index].quantity = 1; // Prevent negative quantity
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    loadCart();
+                }
+            }
+        
+            function removeItem(index) {
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cart.splice(index, 1);
                 localStorage.setItem("cart", JSON.stringify(cart));
                 loadCart();
             }
-        }
         
-        function removeItem(index) {
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            cart.splice(index, 1);
-            localStorage.setItem("cart", JSON.stringify(cart));
-            loadCart();
-        }
+            function clearCart() {
+                localStorage.removeItem("cart");
+                loadCart();
+            }
         
-        function clearCart() {
-            localStorage.removeItem("cart");
-            loadCart();
-        }
+            function updateCartSummary() {
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                let totalAmount = 0;
+                let totalItems = cart.length; // Only counts unique products
         
-    </script>
-
+                cart.forEach(item => {
+                    totalAmount += item.price * item.quantity;
+                });
+        
+                document.getElementById("total-amount").innerText = `₱${totalAmount.toFixed(2)}`;
+                document.getElementById("total-items").innerText = totalItems; // Show unique products
+            }
+        </script>
+        
 </body>
 </html>

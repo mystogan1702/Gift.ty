@@ -238,11 +238,12 @@ button:hover {
     padding: 20px;
     border-radius: 9%;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+    width: 450px;
+    height: 450px;
     text-align: center;
     border: 8px solid rgb(144,37,45);
     margin-right: 50px;
+    position: relative;
 }
 
 .subscription-plan h2 {
@@ -251,9 +252,9 @@ button:hover {
 }
 
 .subscription-plan p {
-    font-weight: bold;
     color: white;
     padding: 10px;
+    font-size: 14.5px;
 }
 
 .subscription-plan ul {
@@ -261,10 +262,15 @@ button:hover {
     padding-left: 20px;
     color: lightgray;
     text-align: left;
+    font-size: 10.5px;
 }
 
 .sub-button {
     display: flex;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 10px;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
@@ -306,7 +312,7 @@ button:hover {
     bottom: -3px;
 }
 
-.gift-tab, .subscribe-tab, .about-us {
+.gift-tab, .subscribe-tab, .about-us, .contact {
     border-bottom: 2px solid white;
 }
 
@@ -347,9 +353,17 @@ button:hover {
     margin-top: 100px;
 }
 
+.about-title {
+    padding: 20px;
+    width: 100%;
+    background: rgba(239,200,69,255);
+    color: black;
+    border-radius: 35%;
+}
+
 .about img {
     margin-top: 50px;
-    max-height: 650px;
+    max-height: 700px;
     width: 100%;
     object-fit: cover;
     border-radius: 10%;
@@ -419,7 +433,7 @@ h2 {
     background-color: rgb(144,37,45);
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 5px;
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
@@ -431,12 +445,41 @@ h2 {
 }
 
 /* Buttons */
+
+.cart-container .quantity-btn {
+    padding: 2px 5px;
+}
+
 .cart-container button {
-    padding: 2px 55px;
+    padding: 10px 7px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
+}
+
+.menu {
+    margin-right: 50px;
+}
+
+.cart-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    margin-top: 10px;
+    border-top: 2px solid #ddd;
+}
+
+.cart-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.total-container {
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .cart-container .remove-btn {
@@ -448,7 +491,7 @@ h2 {
     background-color: #cc0000;
 }
 
-.cart-container .clear-cart {
+.cart-container .clear-cart, .cart-container .checkout-btn {
     background-color: rgba(239,200,69,255);
     color: black;
     margin-top: 20px;
@@ -461,10 +504,97 @@ h2 {
     background-color: white;
 }
 
+.month {
+    padding: 70px 25px;
+    width: 100%;
+    background: rgba(51,91,134,255);
+    text-align: center;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+  
+  .month ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  
+  .month .prev {
+    float: left;
+    padding-top: 10px;
+  }
+  
+  .month .next {
+    float: right;
+    padding-top: 10px;
+  }
+  
+  .weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: rgba(239,200,69,255);
+  }
+  
+  .weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    color: #666;
+    text-align: center;
+  }
+  
+  .days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+  }
+  
+  .days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+  }
+  
+  .days li .active {
+    border-radius: 10px;
+    padding: 5px;
+    background: rgb(144,37,45);
+    color: white !important
+  }
+
+  .calendar-container ul{
+    list-style-type: none;
+  }
+
+  .calendar-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    background: white;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+
+
 /* Responsive Design */
 @media (max-width: 926px) {
     .subscription-plan {
-        width: 48%;
+        width: 350px;
+        height: 580px;
     }
     .navbar {
         height: 90px;
@@ -539,8 +669,27 @@ h2 {
 
 @media (max-width: 734px) {
     .subscription-plan {
-        width: 100%;
+        width: 260px;
+        height: 500px;
     }
+
+    .subscription-plan h2 {
+        font-size: 14px;
+    }
+
+    .subscription-plan p {
+        font-size: 10px;
+    }
+
+    .subscription-plan ul {
+        font-size: 8.5px;
+    }
+
+    .subscription-plan .sub-button button{
+        font-size: 10px;
+        padding: 10px 60px;
+    }
+
     .navbar {
         height: 70px;
         padding: 15px 0;
@@ -624,11 +773,29 @@ h2 {
         margin-top: 100px;
     }
     .subscription-plan {
+        height: 470px;
         width: 100%;
         padding: 15px;
-        border-radius: 10px;
+        border-radius: 10%;
+    }
+
+    .subscription-plan h2 {
+        font-size: 15px;
+    }
+
+    .subscription-container {
         margin-bottom: 50px;
     }
+
+    .subscription-plan p {
+        font-size: 10px;
+        font-weight: normal;
+    }
+
+    .subscription-plan ul {
+        font-size: 8.5px;
+    }
+
     .navbar {
         height: 80px;
         padding: 10px 0;
@@ -637,6 +804,11 @@ h2 {
         left: 0;
         display: flex;
         margin: 0;
+    }
+
+    .sub-button button{
+        font-size: 14px;
+        padding: 10px 60px;
     }
 
     .menu {
@@ -710,12 +882,23 @@ h2 {
         left: 9.5px;
     }
 
+    .navbar .input-box {
+        padding: 0;
+        display: flex;
+        bottom: 2px;  
+        margin: 0;
+        margin-right: 10px;
+    }
+
     .navbar input {
         display: none;
     }
+    .navbar input::placeholder {
+        color: transparent;
+    }
 
     .navbar button {
-        display: none;
+        display: fixed;
     }
 
     .user i {
@@ -772,6 +955,10 @@ h2 {
         height: 100%;
     }
 
+    .about p {
+        font-size: 10px;
+    }
+
     .about img {
         height: 150px;
     }
@@ -820,6 +1007,20 @@ h2 {
         font-size: 5px;
         padding: 6px;
     }
+
+    .total-container {
+        font-size: 12px;
+    }
+
+    .cart-container .clear-cart, .cart-container .checkout-btn {
+        padding: 3px 2px;
+        font-size: 9px;
+        width: 80px;
+
+    }
+
+    .weekdays li, .days li {width: 12.5%;}
+    .days li .active {padding: 2px;}
 
 
 }
