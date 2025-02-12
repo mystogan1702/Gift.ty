@@ -342,6 +342,10 @@ button:hover {
 }
 
 .about {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
     position: relative;
     width: 85%;
     height: auto;
@@ -356,12 +360,36 @@ button:hover {
 .about-title {
     padding: 20px;
     width: 100%;
-    background: rgba(239,200,69,255);
     color: black;
-    border-radius: 35%;
+    border-radius: 15%;
+    margin-right: 20px;
 }
 
-.about img {
+.about-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-logo img {
+    width: 190px;
+    height: 190px;
+    margin-right: 30px;
+}
+
+.about-logo h1{
+    font-size: 70px;
+}
+
+.about-title p {
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+.about .team-pic {
     margin-top: 50px;
     max-height: 700px;
     width: 100%;
@@ -588,10 +616,203 @@ h2 {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
 
+  .contact-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    position: relative;
+    width: 85%;
+    height: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    margin-top: 100px;
+  }
+
+  .instagram, .facebook, .contact-number, .gmail {
+    padding: 40px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex: row;
+    width: 100%;    
+  }
+
+  .instagram p, .facebook p, .contact-number p, .gmail p {
+    font-size: 18px;  
+  }
+
+  .instagram i, .facebook i, .contact-number i, .gmail i {
+    font-size: 50px;
+    margin-right: 30px;
+    color: rgba(51,91,134,255);
+  }
+
+.reminder-container {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+.reminder-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.reminder-table th {
+    background: #2c5175;
+    color: white;
+    padding: 10px;
+}
+
+.reminder-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.reminder-container .reminder-actions, .deleteBtn {
+    background: rgba(239,200,69,255);
+    color: black;
+    border: none;
+    padding: 10px 13px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 10px;  
+    margin-right: 40px;
+    border: 2px solid black;
+}
+
+.set-reminder-btn {
+    width: 20%;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+#reminderForm {
+    display: none;
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.deleteBtn {
+    background-color: rgb(144,37,45);
+    color: white;
+    border: none;
+}
+
+.account-container {
+    width: 50%;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-header {
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-header i {
+    font-size: 80px;
+    color: #2c5175;
+}
+
+.profile-header h2 {
+    margin-top: 10px;
+    color: #2c5175;
+    font-size: 24px;
+}
+
+.profile-header p {
+    color: #666;
+    font-size: 14px;
+}
+
+.account-info {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.account-info h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c5175;
+    font-size: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+.edit-btn {
+    background: rgba(239,200,69,255);
+    color: black;
+    border: none;
+    padding: 12px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    display: block;
+    margin: 10px auto;
+    transition: 0.3s;
+}
+
+.edit-btn:hover {
+    background: white;
+}
 
 
 /* Responsive Design */
 @media (max-width: 926px) {
+    .account-container {
+        width: 70%;
+    }
+    .reminder-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .reminder-table th, .reminder-table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    .set-reminder-btn {
+        width: 30%;
+        font-size: 14px;
+    }
     .subscription-plan {
         width: 350px;
         height: 580px;
@@ -633,6 +854,19 @@ h2 {
         margin-right: 30px;
     }
 
+    .about .team-pic {
+        height: 350px;
+    }
+
+    .about .logo-icon {
+        width: 90px;
+        height: 90px;
+    }
+
+    .about-logo h1 {
+        font-size: 40px;
+    }
+
     .user i {
         font-size: 50px;
     }
@@ -668,6 +902,32 @@ h2 {
 }
 
 @media (max-width: 734px) {
+    .account-container {
+        width: 80%;
+    }
+
+    table th, table td {
+        font-size: 14px;
+    }
+    .reminder-container {
+        width: 95%;
+    }
+
+    .reminder-table th, .reminder-table td {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .set-reminder-btn {
+        width: 40%;
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .reminder-actions button {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
     .subscription-plan {
         width: 260px;
         height: 500px;
@@ -739,8 +999,17 @@ h2 {
         margin-top: 80px;
     }
 
-    .about img {
-        height: 300px;
+    .about .logo-icon {
+        width: 90px;
+        height: 90px;
+    }
+
+    .about-logo h1 {
+        font-size: 40px;
+    }
+
+    .about .team-pic {
+        height: 350px;
     }
 
     .cart-container {
@@ -769,6 +1038,54 @@ h2 {
 }
 
 @media (max-width: 430px) {
+    .account-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .profile-header i {
+        font-size: 60px;
+    }
+
+    table th, table td {
+        font-size: 12px;
+    }
+
+    .edit-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    input {
+        font-size: 9px;
+        padding: 4px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .reminder-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .reminder-table th, .reminder-table td {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    .reminder-container .set-reminder-btn {
+        width: 35%;
+        font-size: 10px;
+        padding: 10px;
+    }
+
+    .reminder-container .reminder-actions, .deleteBtn {
+        padding: 3px 7px;
+        font-size: 10px;
+    }
+
+    
     .contents-subs {
         margin-top: 100px;
     }
@@ -951,16 +1268,35 @@ h2 {
     }
 
     .about {
-        width: 85%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        width: 90%;
         height: 100%;
+        margin: 0;
+        margin-top: 50px;
+    }
+
+    .about-title {
+        width: 100%;
+    }
+
+    .about-logo h1{
+        font-size: 30px;
     }
 
     .about p {
         font-size: 10px;
     }
 
-    .about img {
+    .about .team-pic {
         height: 150px;
+    }
+
+    .about .logo-icon {
+        width: 70px;
+        height: 70px;
     }
     
     .cart-container {
@@ -1018,6 +1354,17 @@ h2 {
         width: 80px;
 
     }
+    
+    
+  .instagram p, .facebook p, .contact-number p, .gmail p {
+    font-size: 13px;  
+  }
+
+  .instagram i, .facebook i, .contact-number i, .gmail i {
+    font-size: 50px;
+    margin-right: 10px;
+    color: rgba(51,91,134,255);
+  }
 
     .weekdays li, .days li {width: 12.5%;}
     .days li .active {padding: 2px;}

@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GIFT.TY | SUBSCRIBE</title>
+    <title>GIFT.TY | Reminders</title>
     <link rel="stylesheet" href="home.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script defer src="script.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="navbar">
             <img src="LOGO.png" class="logo">
             <div class="menu">
-                <ul>
-                    <li><a href="home.html">Browse Gifts</a></li>
-                    <li><a href="subscription.html">Subscribe</a></li>
-                    
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
+            <ul>
+                <li><a href="home.html" class="gift-tab">Browse Gifts</a></li>
+                
+                <li><a href="subscription.html">Subscribe</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
             </div>
+
             <div class="user">
                 <i class='bx bxs-user-circle' ></i>
                 <div class="user-dropdown">
-                    <a href="#">Settings</a>
-                    <a href="#">Account</a>
+                    
+                    <a href="account.html">Account</a>
                     <a href="reminder.html">Reminders</a>
                     <a href="calendar.html">Calendar</a>
                     <a href="index.html">Sign Out</a>
@@ -35,7 +37,94 @@
             </div>
             
         </div>
+        
+        
 
+        <div class="reminder-container">
+            <h2>My Reminders</h2>
+
+            <!-- Reminder List -->
+            <table class="reminder-table">
+                <thead>
+                    <tr>
+                        <th>Reminder Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="reminderList">
+                    <tr><td colspan="4" style="text-align: center;"></td></tr>
+                </tbody>
+            </table>
+
+            <!-- Reminder Form -->
+            <div id="reminderForm">
+                <input type="text" id="reminderName" placeholder="Reminder Name">
+                <input type="date" id="reminderDate">
+                <input type="time" id="reminderTime">
+                <button id="saveReminder" class="reminder-actions">Save Reminder</button>
+            </div>
+
+            <!-- Buttons at the Bottom -->
+            <button id="addReminderBtn" class="reminder-actions set-reminder-btn">Set Reminder</button>
+            <button id="clearRemindersBtn" class="reminder-actions set-reminder-btn">Clear Reminders</button>
+        </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const addReminderBtn = document.getElementById("addReminderBtn");
+            const reminderForm = document.getElementById("reminderForm");
+            const saveReminderBtn = document.getElementById("saveReminder");
+            const reminderList = document.getElementById("reminderList");
+            const clearRemindersBtn = document.getElementById("clearRemindersBtn");
+
+            // Show reminder form
+            addReminderBtn.addEventListener("click", function() {
+                reminderForm.style.display = "block";
+            });
+
+            // Save reminder
+            saveReminderBtn.addEventListener("click", function() {
+                const name = document.getElementById("reminderName").value;
+                const date = document.getElementById("reminderDate").value;
+                const time = document.getElementById("reminderTime").value;
+
+                if (name && date && time) {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${name}</td>
+                        <td>${date}</td>
+                        <td>${time}</td>
+                        <td><button class="deleteBtn">Delete</button></td>
+                    `;
+
+                    // Add delete event
+                    row.querySelector(".deleteBtn").addEventListener("click", function() {
+                        reminderList.removeChild(row);
+                    });
+
+                    // Append to table
+                    reminderList.appendChild(row);
+
+                    // Clear inputs
+                    document.getElementById("reminderName").value = "";
+                    document.getElementById("reminderDate").value = "";
+                    document.getElementById("reminderTime").value = "";
+
+                    // Hide form
+                    reminderForm.style.display = "none";
+                } else {
+                    alert("Please fill in all fields!");
+                }
+            });
+
+            // Clear all reminders
+            clearRemindersBtn.addEventListener("click", function() {
+                reminderList.innerHTML = `<tr><td colspan="4" style="text-align: center;"></td></tr>`;
+            });
+        });
+    </script>
 </body>
 </html>
